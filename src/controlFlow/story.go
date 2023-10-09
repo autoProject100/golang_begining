@@ -2,17 +2,17 @@ package main
 
 import "fmt"
 
-type step struct {
+type Step struct {
 	stepString   string
-	stepQuestion *questions
+	stepQuestion *Questions
 }
 
-type questions struct {
+type Questions struct {
 	stepQuestion    string
-	one, two, three *step
+	one, two, three *Step
 }
 
-func main() {
+func BigGame() {
 	//strings to variables
 	gameOverString := "GAME OVER"
 	zeroStepString := "Стівен прокинувся біля входу в печеру. Він лише памʼятає своє імʼя. \n" +
@@ -41,59 +41,59 @@ func main() {
 		"який розкаже як його звуть і чому він опинився в печері. Але це вже зовсім інша історія...\n"
 
 	//set all objects to create the story
-	third2 := step{
+	third2 := Step{
 		stepString:   thirdStepString2,
 		stepQuestion: nil,
 	}
-	third1 := step{
+	third1 := Step{
 		stepString:   thirdStepString1,
 		stepQuestion: nil,
 	}
 
-	second3Question := questions{
+	second3Question := Questions{
 		stepQuestion: secondStepStringQuestion,
 		one:          &third1,
 		two:          &third2,
 		three:        nil,
 	}
 
-	second3 := step{
+	second3 := Step{
 		stepString:   secondStepString3,
 		stepQuestion: &second3Question,
 	}
-	second2 := step{
+	second2 := Step{
 		stepString:   secondStepString2,
 		stepQuestion: nil,
 	}
-	second1 := step{
+	second1 := Step{
 		stepString:   secondStepString1,
 		stepQuestion: nil,
 	}
 
-	first2Question := questions{
+	first2Question := Questions{
 		stepQuestion: firstStepStringQuestion,
 		one:          &second1,
 		two:          &second2,
 		three:        &second3,
 	}
 
-	first2 := step{
+	first2 := Step{
 		stepString:   firstStepString2,
 		stepQuestion: &first2Question,
 	}
-	first1 := step{
+	first1 := Step{
 		stepString:   firstStepString1,
 		stepQuestion: nil,
 	}
 
-	zeroQuestion := questions{
+	zeroQuestion := Questions{
 		stepQuestion: zeroStepStringQuestion,
 		one:          &first1,
 		two:          &first2,
 		three:        nil,
 	}
 
-	zero := step{
+	zero := Step{
 		stepString:   zeroStepString,
 		stepQuestion: &zeroQuestion,
 	}
