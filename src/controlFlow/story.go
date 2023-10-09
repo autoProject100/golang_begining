@@ -1,15 +1,15 @@
-package main
+package controlFlow
 
 import "fmt"
 
-type Step struct {
+type step struct {
 	stepString   string
-	stepQuestion *Questions
+	stepQuestion *questions
 }
 
-type Questions struct {
+type questions struct {
 	stepQuestion    string
-	one, two, three *Step
+	one, two, three *step
 }
 
 func BigGame() {
@@ -41,59 +41,59 @@ func BigGame() {
 		"який розкаже як його звуть і чому він опинився в печері. Але це вже зовсім інша історія...\n"
 
 	//set all objects to create the story
-	third2 := Step{
+	third2 := step{
 		stepString:   thirdStepString2,
 		stepQuestion: nil,
 	}
-	third1 := Step{
+	third1 := step{
 		stepString:   thirdStepString1,
 		stepQuestion: nil,
 	}
 
-	second3Question := Questions{
+	second3Question := questions{
 		stepQuestion: secondStepStringQuestion,
 		one:          &third1,
 		two:          &third2,
 		three:        nil,
 	}
 
-	second3 := Step{
+	second3 := step{
 		stepString:   secondStepString3,
 		stepQuestion: &second3Question,
 	}
-	second2 := Step{
+	second2 := step{
 		stepString:   secondStepString2,
 		stepQuestion: nil,
 	}
-	second1 := Step{
+	second1 := step{
 		stepString:   secondStepString1,
 		stepQuestion: nil,
 	}
 
-	first2Question := Questions{
+	first2Question := questions{
 		stepQuestion: firstStepStringQuestion,
 		one:          &second1,
 		two:          &second2,
 		three:        &second3,
 	}
 
-	first2 := Step{
+	first2 := step{
 		stepString:   firstStepString2,
 		stepQuestion: &first2Question,
 	}
-	first1 := Step{
+	first1 := step{
 		stepString:   firstStepString1,
 		stepQuestion: nil,
 	}
 
-	zeroQuestion := Questions{
+	zeroQuestion := questions{
 		stepQuestion: zeroStepStringQuestion,
 		one:          &first1,
 		two:          &first2,
 		three:        nil,
 	}
 
-	zero := Step{
+	zero := step{
 		stepString:   zeroStepString,
 		stepQuestion: &zeroQuestion,
 	}
